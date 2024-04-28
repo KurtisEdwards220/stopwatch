@@ -26,25 +26,26 @@ function App() {
         <span>{('0' + Math.floor((time / 1000) % 60)).slice(-2)}:</span>
         <span>{('0' + ((time / 10) % 100)).slice(-2)}:</span>
       </div>
-      {/* Button logic */}
+      {/* Conditional button logic */}
       <div>
-        {/* Start Button */}
-        <button
-          onClick={() => {
-            setRunning(true);
-          }}
-        >
-          Start
-        </button>
-        {/* Stop Button */}
-        <button
-          onClick={() => {
-            setRunning(false);
-          }}
-        >
-          Stop
-        </button>
-        {/* Reset Button */}
+        {running ? (
+          <button
+            onClick={() => {
+              setRunning(false);
+            }}
+          >
+            Stop
+          </button>
+        ) : (
+          <button
+            onClick={() => {
+              setRunning(true);
+            }}
+          >
+            Start
+          </button>
+        )}
+
         <button
           onClick={() => {
             setTime(0);
