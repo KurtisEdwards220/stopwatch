@@ -18,18 +18,19 @@ function App() {
   }, [running]);
 
   return (
-    <>
-      <h1>stopwatch</h1>
+    <div className="max-w-md flex flex-col items-center justify-center py-8">
+      <h1 className="text-2xl font-semibold">stopwatch</h1>
       {/* Time logic */}
-      <div>
+      <div className="text-xl font-semibold py-4">
         <span>{('0' + Math.floor((time / 60000) % 60)).slice(-2)}:</span>
         <span>{('0' + Math.floor((time / 1000) % 60)).slice(-2)}:</span>
         <span>{('0' + ((time / 10) % 100)).slice(-2)}:</span>
       </div>
       {/* Conditional button logic */}
-      <div>
+      <div className="w-1/3 max-w-sm flex flex-row justify-evenly">
         {running ? (
           <button
+            className="border rounded-leg py-1 px-3.5"
             onClick={() => {
               setRunning(false);
             }}
@@ -38,6 +39,7 @@ function App() {
           </button>
         ) : (
           <button
+            className="border rounded-lg py-1 px-3"
             onClick={() => {
               setRunning(true);
             }}
@@ -47,6 +49,7 @@ function App() {
         )}
 
         <button
+          className="border rounded-lg py-1 px-2.5"
           onClick={() => {
             setTime(0);
           }}
@@ -54,7 +57,7 @@ function App() {
           Reset
         </button>
       </div>
-    </>
+    </div>
   );
 }
 
